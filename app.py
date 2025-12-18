@@ -44,10 +44,12 @@ def livro_mensagem():
 
 @app.route("/limpar", methods=['POST'])
 def limpar_dados():
-    botao = request.form.get('botao')
     apagar_mensagens()
-
     return redirect(url_for('livro_mensagem'))
+
+@app.route("/confirmar-limpeza", methods=['GET', 'POST'])
+def confirmar():
+   return render_template("confirmar.html")
 
 if __name__ == "__main__":
    app.run(debug=True)

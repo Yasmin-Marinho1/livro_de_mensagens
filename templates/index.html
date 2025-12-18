@@ -32,19 +32,11 @@
        <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-slate-400">
            <div class="flex justify-between items-center mb-6">
                <h2 class="text-xl font-bold text-slate-800">Mensagens Recebidas</h2>
-                <form action="{{ url_for('limpar_dados') }}" method="POST" onsubmit="return confirmar()">
-                    <input type="hidden" name="botao">
+                <form action="{{ url_for('confirmar') }}" method="POST">
                     <button type="submit" class="uppercase rounded-lg py-2 px-4 text-red-500 text-xs font-bold border-2 border-red-200">
                         Limpar Dados</button>
                 </form>
             </div>
-            <script>
-                function confirmar() {
-                    var resultado = confirm("Tem certeza que deseja apagar todas as mensagens permanentemente?");
-                    return resultado;
-                }
-            </script>
-
            <div class="space-y-3">
                {% for msg in mensagens %}
                    <div class="p-3 bg-slate-50 border-l-4 border-slate-300 rounded text-slate-700 text-sm shadow-sm">
