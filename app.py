@@ -23,6 +23,7 @@ def guardar_mensagem(nome, mensagem):
 def apagar_mensagens():
     with open(FICHEIRO_DADOS, "w"):
         pass
+    
 # --- Aqui estão as rotas da Aplicação ---
 @app.route("/", methods=['GET', 'POST'])
 def livro_mensagem():
@@ -43,6 +44,7 @@ def livro_mensagem():
 
 @app.route("/limpar", methods=['POST'])
 def limpar_dados():
+    botao = request.form.get('botao')
     apagar_mensagens()
 
     return redirect(url_for('livro_mensagem'))
